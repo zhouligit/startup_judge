@@ -74,7 +74,7 @@ const shareStats = ref(null)
 
 const generateShareLink = async () => {
   try {
-    const data = await shareAPI.generateShareLink()
+    const data = await shareAPI.generateShare({})
     shareLink.value = data.share_link
   } catch (error) {
     console.error('生成分享链接失败:', error)

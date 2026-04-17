@@ -126,3 +126,27 @@ export const useProductStore = defineStore('product', {
     }
   }
 })
+
+export const useShareStore = defineStore('share', {
+  state: () => ({
+    shareData: null,
+    shareLink: '',
+    shareCode: ''
+  }),
+  actions: {
+    setShareData(data) {
+      this.shareData = data
+    },
+    setShareLink(link) {
+      this.shareLink = link
+    },
+    setShareCode(code) {
+      this.shareCode = code
+    },
+    reset() {
+      this.shareData = null
+      this.shareLink = ''
+      this.shareCode = ''
+    }
+  }
+})
