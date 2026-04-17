@@ -63,8 +63,8 @@
 <script>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { authAPI, submissionsAPI, productsAPI } from '../services/api'
-import Navbar from '../components/Navbar.vue'
+import { authAPI, submissionsAPI, productsAPI } from '../../services/api'
+import Navbar from '../../components/Navbar.vue'
 
 export default {
   name: 'My',
