@@ -21,7 +21,7 @@
         <span>辩护博弈</span>
       </router-link>
       <router-link to="/products" class="nav-link">
-        <el-icon><Shopping /></el-icon>
+        <el-icon><ShoppingCart /></el-icon>
         <span>付费服务</span>
       </router-link>
       <router-link to="/my" class="nav-link">
@@ -40,7 +40,7 @@
 
 <script setup>
 import { useUserStore } from '../store'
-import { HomeFilled, DocumentChecked, DataAnalysis, ChatLineRound, Shopping, User, Key } from '@element-plus/icons-vue'
+import { HomeFilled, DocumentChecked, DataAnalysis, ChatLineRound, ShoppingCart, User, Key } from '@element-plus/icons-vue'
 
 const userStore = useUserStore()
 const isLoggedIn = userStore.isLoggedIn
