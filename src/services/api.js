@@ -37,7 +37,8 @@ api.interceptors.response.use(
 // 认证相关API
 export const authAPI = {
   register: (userData) => api.post('/api/auth/register', userData),
-  login: (userData) => api.post('/api/auth/login', userData)
+  login: (userData) => api.post('/api/auth/login', userData),
+  getCurrentUser: () => api.get('/api/auth/me')
 }
 
 // 题库相关API
@@ -63,7 +64,14 @@ export const defenseAPI = {
 export const productsAPI = {
   getProducts: () => api.get('/api/products/'),
   purchaseProduct: (productId) => api.post('/api/products/purchase', { product_id: productId }),
-  getProductContent: (productId) => api.get(`/api/products/content/${productId}`)
+  getProductContent: (productId) => api.get(`/api/products/content/${productId}`),
+  createPayment: (paymentData) => api.post('/api/products/payment', paymentData)
+}
+
+// 提交记录相关API
+export const submissionsAPI = {
+  getSubmissions: (moduleType) => api.get('/api/submissions/', { params: { module_type: moduleType } }),
+  getSubmission: (id) => api.get(`/api/submissions/${id}`)
 }
 
 // 裂变分享相关API

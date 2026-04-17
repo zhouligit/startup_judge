@@ -43,6 +43,11 @@ const router = createRouter({
       component: () => import('../views/Products/Products.vue')
     },
     {
+      path: '/my',
+      name: 'my',
+      component: () => import('../views/My/My.vue')
+    },
+    {
       path: '/share',
       name: 'share',
       component: () => import('../views/Share/Share.vue')
