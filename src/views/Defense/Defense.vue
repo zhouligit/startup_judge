@@ -98,7 +98,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDefenseStore } from '../../store'
 import { defenseAPI } from '../../services/api'
@@ -143,7 +143,7 @@ const getJudgeName = (judge) => {
 const startDefense = async () => {
   loading.value = true
   try {
-    const data = await defenseAPI.getDefenseQuestion(projectForm)
+    const data = await defenseAPI.getQuestion(projectForm)
     question.value = data
     defenseStore.setQuestion(data)
   } catch (error) {
@@ -174,7 +174,7 @@ const submitDefense = async () => {
 const getNextQuestion = async () => {
   loading.value = true
   try {
-    const data = await defenseAPI.getDefenseQuestion(projectForm)
+    const data = await defenseAPI.getQuestion(projectForm)
     question.value = data
     defenseForm.response = ''
     response.value = null

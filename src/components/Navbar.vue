@@ -10,12 +10,18 @@
       <router-link to="/defense" class="nav-link">辩护博弈</router-link>
       <router-link to="/products" class="nav-link">付费服务</router-link>
       <router-link to="/my" class="nav-link">我的</router-link>
+      <template v-if="!isLoggedIn">
+        <router-link to="/auth/login" class="nav-link login-link">登录/注册</router-link>
+      </template>
     </div>
   </nav>
 </template>
 
 <script setup>
-// 导航栏组件
+import { useUserStore } from '../store'
+
+const userStore = useUserStore()
+const isLoggedIn = userStore.isLoggedIn
 </script>
 
 <style scoped>

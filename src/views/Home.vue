@@ -9,7 +9,7 @@
         <el-button type="primary" size="large" @click="navigateTo('questions')">
           开始测试
         </el-button>
-        <el-button size="large" @click="navigateTo('login')">
+        <el-button v-if="!isLoggedIn" size="large" @click="navigateTo('login')">
           登录/注册
         </el-button>
       </div>
@@ -61,9 +61,12 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { useUserStore } from '../store'
 import Navbar from '../components/Navbar.vue'
 
 const router = useRouter()
+const userStore = useUserStore()
+const isLoggedIn = userStore.isLoggedIn
 
 const navigateTo = (path) => {
   router.push(`/${path}`)
