@@ -1,5 +1,6 @@
 <template>
   <div class="my-container">
+    <Navbar />
     <div class="header">
       <h2>我的</h2>
     </div>
@@ -63,9 +64,13 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { authAPI, submissionsAPI, productsAPI } from '../services/api'
+import Navbar from '../components/Navbar.vue'
 
 export default {
   name: 'My',
+  components: {
+    Navbar
+  },
   setup() {
     const router = useRouter()
     const loading = ref(true)

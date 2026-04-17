@@ -1,5 +1,6 @@
 <template>
   <div class="questions-container">
+    <Navbar />
     <h1>通用创业题库</h1>
     <p>请回答以下问题，我们将评估你的创业潜力</p>
     
@@ -74,6 +75,7 @@ import { ref, reactive, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuestionStore } from '../../store'
 import { questionsAPI } from '../../services/api'
+import Navbar from '../../components/Navbar.vue'
 
 const router = useRouter()
 const questionStore = useQuestionStore()

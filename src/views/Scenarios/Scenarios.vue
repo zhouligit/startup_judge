@@ -1,5 +1,6 @@
 <template>
   <div class="scenarios-container">
+    <Navbar />
     <h1>情景推演</h1>
     <p>模拟创业过程中的各种挑战，AI预判你如何失败</p>
     
@@ -101,6 +102,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useScenarioStore } from '../../store'
 import { scenariosAPI } from '../../services/api'
+import Navbar from '../../components/Navbar.vue'
 
 const router = useRouter()
 const scenarioStore = useScenarioStore()

@@ -1,5 +1,6 @@
 <template>
   <div class="defense-container">
+    <Navbar />
     <h1>辩护博弈</h1>
     <p>与AI毒舌评审团展开辩论，证明你的创业计划可行</p>
     
@@ -97,10 +98,11 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDefenseStore } from '../../store'
 import { defenseAPI } from '../../services/api'
+import Navbar from '../../components/Navbar.vue'
 
 const router = useRouter()
 const defenseStore = useDefenseStore()

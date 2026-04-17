@@ -1,5 +1,7 @@
 <template>
   <div class="home-container">
+    <Navbar />
+
     <div class="hero-section">
       <h1>创业判官</h1>
       <p>99%的人根本不适合创业，你大概率就是那99%</p>
@@ -59,6 +61,7 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import Navbar from '../components/Navbar.vue'
 
 const router = useRouter()
 
@@ -73,6 +76,8 @@ const navigateTo = (path) => {
   margin: 0 auto;
   padding: 40px 20px;
 }
+
+
 
 .hero-section {
   text-align: center;

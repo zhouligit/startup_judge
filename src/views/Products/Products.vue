@@ -1,5 +1,6 @@
 <template>
   <div class="products-container">
+    <Navbar />
     <h1>付费产品</h1>
     <p>获取专业的创业评估和建议</p>
     
@@ -79,6 +80,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useProductStore } from '../../store'
 import { productsAPI } from '../../services/api'
+import Navbar from '../../components/Navbar.vue'
 
 const router = useRouter()
 const productStore = useProductStore()

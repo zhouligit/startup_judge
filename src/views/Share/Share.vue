@@ -1,5 +1,6 @@
 <template>
   <div class="share-container">
+    <Navbar />
     <h1>裂变分享</h1>
     <p>分享给朋友，获得额外的创业评估机会</p>
     
@@ -65,6 +66,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useShareStore } from '../../store'
 import { shareAPI } from '../../services/api'
+import Navbar from '../../components/Navbar.vue'
 
 const router = useRouter()
 const shareStore = useShareStore()
