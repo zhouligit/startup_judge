@@ -42,7 +42,7 @@ export const authAPI = {
 
 // 题库相关API
 export const questionsAPI = {
-  getQuestions: () => api.get('/api/questions/'),
+  getQuestions: () => api.get('/api/questions'),
   submitAnswers: (answers) => api.post('/api/questions/submit', answers)
 }
 
