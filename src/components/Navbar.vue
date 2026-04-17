@@ -4,14 +4,35 @@
       <h1 class="logo">创业判官</h1>
     </div>
     <div class="nav-right">
-      <router-link to="/" class="nav-link">首页</router-link>
-      <router-link to="/questions" class="nav-link">题库</router-link>
-      <router-link to="/scenarios" class="nav-link">情景推演</router-link>
-      <router-link to="/defense" class="nav-link">辩护博弈</router-link>
-      <router-link to="/products" class="nav-link">付费服务</router-link>
-      <router-link to="/my" class="nav-link">我的</router-link>
+      <router-link to="/" class="nav-link">
+        <el-icon><HomeFilled /></el-icon>
+        <span>首页</span>
+      </router-link>
+      <router-link to="/questions" class="nav-link">
+        <el-icon><DocumentChecked /></el-icon>
+        <span>题库</span>
+      </router-link>
+      <router-link to="/scenarios" class="nav-link">
+        <el-icon><DataAnalysis /></el-icon>
+        <span>情景推演</span>
+      </router-link>
+      <router-link to="/defense" class="nav-link">
+        <el-icon><ChatLineRound /></el-icon>
+        <span>辩护博弈</span>
+      </router-link>
+      <router-link to="/products" class="nav-link">
+        <el-icon><Shopping /></el-icon>
+        <span>付费服务</span>
+      </router-link>
+      <router-link to="/my" class="nav-link">
+        <el-icon><User /></el-icon>
+        <span>我的</span>
+      </router-link>
       <template v-if="!isLoggedIn">
-        <router-link to="/auth/login" class="nav-link login-link">登录/注册</router-link>
+        <router-link to="/auth/login" class="nav-link login-link">
+          <el-icon><Key /></el-icon>
+          <span>登录/注册</span>
+        </router-link>
       </template>
     </div>
   </nav>
@@ -19,6 +40,7 @@
 
 <script setup>
 import { useUserStore } from '../store'
+import { HomeFilled, DocumentChecked, DataAnalysis, ChatLineRound, Shopping, User, Key } from '@element-plus/icons-vue'
 
 const userStore = useUserStore()
 const isLoggedIn = userStore.isLoggedIn
@@ -53,6 +75,9 @@ const isLoggedIn = userStore.isLoggedIn
   padding: 8px 16px;
   border-radius: 4px;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .nav-link:hover {
