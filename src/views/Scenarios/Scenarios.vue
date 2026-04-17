@@ -8,22 +8,6 @@
       <el-loading :fullscreen="true" text="加载中..."></el-loading>
     </div>
     
-    <div v-else-if="scenarios.length > 0" class="scenarios-list">
-      <el-card v-for="scenario in scenarios" :key="scenario.id" class="scenario-card">
-        <template #header>
-          <div class="scenario-header">
-            <span class="scenario-title">{{ scenario.title }}</span>
-            <span class="scenario-industry">{{ scenario.industry }}</span>
-          </div>
-        </template>
-        <div class="scenario-content">
-          <el-button type="primary" @click="selectScenario(scenario.id)">
-            开始推演
-          </el-button>
-        </div>
-      </el-card>
-    </div>
-    
     <div v-else-if="currentScenario" class="scenario-detail">
       <el-card class="detail-card">
         <template #header>
@@ -93,6 +77,22 @@
           </div>
         </el-card>
       </div>
+    </div>
+    
+    <div v-else-if="scenarios.length > 0" class="scenarios-list">
+      <el-card v-for="scenario in scenarios" :key="scenario.id" class="scenario-card">
+        <template #header>
+          <div class="scenario-header">
+            <span class="scenario-title">{{ scenario.title }}</span>
+            <span class="scenario-industry">{{ scenario.industry }}</span>
+          </div>
+        </template>
+        <div class="scenario-content">
+          <el-button type="primary" @click="selectScenario(scenario.id)">
+            开始推演
+          </el-button>
+        </div>
+      </el-card>
     </div>
   </div>
 </template>
