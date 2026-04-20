@@ -61,12 +61,13 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { computed } from 'vue'
 import { useUserStore } from '../store'
 import Navbar from '../components/Navbar.vue'
 
 const router = useRouter()
 const userStore = useUserStore()
-const isLoggedIn = userStore.isLoggedIn
+const isLoggedIn = computed(() => userStore.isLoggedIn)
 
 const navigateTo = (path) => {
   router.push(`/${path}`)

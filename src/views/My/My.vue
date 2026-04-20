@@ -85,6 +85,11 @@ export default {
       } catch (err) {
         console.error('获取用户信息失败:', err)
         error.value = '获取用户信息失败'
+        // 如果是认证错误，跳转到登录页
+        if (err.response?.status === 401) {
+          localStorage.removeItem('token')
+          router.push('/auth/login')
+        }
       }
     }
 
