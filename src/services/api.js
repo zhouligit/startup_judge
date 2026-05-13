@@ -1,10 +1,7 @@
 import axios from 'axios'
 
-// 生产环境静态站（如 serve）不会代理 /api，需指向真实后端；开发环境留空走 Vite proxy
-const apiBase =
-  typeof import.meta.env.VITE_API_BASE_URL === 'string'
-    ? import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '')
-    : ''
+// 由 vite.config.js loadEnv + define 注入；开发模式一般为空，走 Vite proxy
+const apiBase = __API_BASE_URL__
 
 // 创建axios实例
 const api = axios.create({
