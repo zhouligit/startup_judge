@@ -33,29 +33,7 @@
       </div>
     </div>
     
-    <div class="products-section">
-      <h2>付费服务</h2>
-      <div class="products-grid">
-        <div class="product-card">
-          <h3>创业死刑判决书</h3>
-          <p>详细分析你的创业项目，指出存在的问题和失败风险</p>
-          <p class="price">¥9.9</p>
-          <el-button @click="navigateTo('products')">查看详情</el-button>
-        </div>
-        <div class="product-card">
-          <h3>改判申请书</h3>
-          <p>针对死刑判决书中的问题，给出可执行的整改方案</p>
-          <p class="price">¥19.9</p>
-          <el-button @click="navigateTo('products')">查看详情</el-button>
-        </div>
-        <div class="product-card">
-          <h3>同案犯匹配</h3>
-          <p>匹配与你罪名相同、项目相似、能力互补的创业伙伴</p>
-          <p class="price">¥29.9</p>
-          <el-button @click="navigateTo('products')">查看详情</el-button>
-        </div>
-      </div>
-    </div>
+
   </div>
 </template>
 
