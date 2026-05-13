@@ -8,9 +8,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Dependencies
-node_modules
+node_modules/
 .pnp
 .pnp.js
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Testing
 coverage
@@ -18,14 +21,14 @@ coverage
 .nyc_output
 
 # Production
-dist
+dist/
 dist-ssr
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
@@ -44,3 +47,11 @@ dist-ssr
 # Temporary files
 *.tmp
 *.temp
+
+# OS files
+Thumbs.db
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
