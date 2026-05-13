@@ -1,7 +1,14 @@
 import axios from 'axios'
 
+// 生产环境静态站（如 serve）不会代理 /api，需指向真实后端；开发环境留空走 Vite proxy
+const apiBase =
+  typeof import.meta.env.VITE_API_BASE_URL === 'string'
+    ? import.meta.env.VITE_API_BASE_URL.replace(/\/$/, '')
+    : ''
+
 // 创建axios实例
 const api = axios.create({
+  baseURL: apiBase,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json'
@@ -15,6 +22,11 @@ api.interceptors.request.use(
     const token = localStorage.getItem('token')
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
+    }
+    // GET/HEAD 无 body 时不带 application/json，减少 CORS 预检与 307 链路上的兼容问题
+    const m = (config.method || 'get').toLowerCase()
+    if ((m === 'get' || m === 'head') && config.data === undefined) {
+      delete config.headers['Content-Type']
     }
     return config
   },
@@ -43,13 +55,14 @@ export const authAPI = {
 
 // 题库相关API
 export const questionsAPI = {
-  getQuestions: () => api.get('/api/questions'),
+  // 尾部 / 避免 Starlette 307 到 /api/questions/，跨域时部分浏览器对重定向 CORS 更敏感
+  getQuestions: () => api.get('/api/questions/'),
   submitAnswers: (answers) => api.post('/api/questions/submit', answers)
 }
 
 // 情景推演相关API
 export const scenariosAPI = {
-  getScenarios: () => api.get('/api/scenarios'),
+  getScenarios: () => api.get('/api/scenarios/'),
   getScenario: (id) => api.get(`/api/scenarios/${id}`),
   submitChoice: (data) => api.post('/api/scenarios/submit', data)
 }
