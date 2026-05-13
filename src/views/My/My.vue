@@ -41,7 +41,7 @@
         </div>
       </div>
 
-      <div class="section">
+      <div v-if="showMyOrders" class="section">
         <h3>我的订单</h3>
         <div v-if="orders.length === 0" class="empty">暂无订单</div>
         <div v-else class="order-list">
@@ -72,6 +72,8 @@ export default {
     Navbar
   },
   setup() {
+    /** 「我的订单」区块，需要展示时改为 true */
+    const showMyOrders = false
     const router = useRouter()
     const loading = ref(true)
     const error = ref(null)
@@ -141,13 +143,16 @@ export default {
 
     onMounted(async () => {
       try {
-        await Promise.all([loadUserInfo(), loadSubmissions(), loadOrders()])
+        const tasks = [loadUserInfo(), loadSubmissions()]
+        if (showMyOrders) tasks.push(loadOrders())
+        await Promise.all(tasks)
       } finally {
         loading.value = false
       }
     })
 
     return {
+      showMyOrders,
       loading,
       error,
       user,

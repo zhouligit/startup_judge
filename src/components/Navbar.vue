@@ -20,7 +20,7 @@
         <el-icon><ChatLineRound /></el-icon>
         <span>辩护博弈</span>
       </router-link>
-      <router-link to="/products" class="nav-link">
+      <router-link v-if="showPaidNav" to="/products" class="nav-link">
         <el-icon><ShoppingCart /></el-icon>
         <span>付费服务</span>
       </router-link>
@@ -44,6 +44,9 @@ import { HomeFilled, DocumentChecked, DataAnalysis, ChatLineRound, ShoppingCart,
 
 const userStore = useUserStore()
 const isLoggedIn = userStore.isLoggedIn
+
+/** 顶部「付费服务」入口，需要展示时改为 true */
+const showPaidNav = false
 </script>
 
 <style scoped>
